@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  chroma:
+    image: ghcr.io/chroma-core/chroma:latest
+    volumes:
+      - index_data:/chroma/.chroma/index
+    ports:
+      - 8000:8000
+    networks:
+      - chroma-net
+
+volumes:
+  index_data:
+    driver: local
+
+networks:
+  chroma-net:
+    driver: bridge
